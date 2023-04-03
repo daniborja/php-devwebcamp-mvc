@@ -1,0 +1,48 @@
+@use 'variables' as v;
+
+/** Media Queries **/
+@mixin mobile {
+    @media (min-width: v.$mobile) {
+        @content;
+    }
+}
+@mixin tablet {
+    @media (min-width: v.$tablet) {
+        @content;
+    }
+}
+@mixin desktop {
+    @media (min-width: v.$desktop) {
+        @content;
+    }
+}
+@mixin xl_desktop {
+    @media (min-width: v.$xl_desktop) {
+        @content;
+    }
+}
+
+@mixin button($bgColor, $textColor) {
+    background-color: $bgColor;
+    padding: 1.5rem 4rem;
+    color: $textColor;
+    font-size: 1.8rem;
+    font-weight: 700;
+    border: none;
+    transition-property: background-color;
+    transition-duration: 0.3s;
+    text-align: center;
+    width: 100%;
+    display: inline-block;
+
+    &:hover {
+        background-color: darken($bgColor, 10%);
+        cursor: pointer;
+    }
+}
+
+@mixin grid($columns, $spacing) {
+    display: grid;
+    gap: $spacing;
+    grid-template-columns: repeat($columns, 1fr);
+}
