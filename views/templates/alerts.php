@@ -10,7 +10,7 @@ foreach ($alerts as $key => $alert) {
 }
 ?>
 
-<!-- Just 1 foreach and impole() -->
+<!-- Just 1 foreach and impole(): -->
 <!-- <?php
         foreach ($alerts as $key => $alert) {
             $message = implode("<br>", $alert);
