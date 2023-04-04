@@ -93,3 +93,40 @@
         margin: 0;
     }
 }
+
+@mixin social-menu($color, $size) {
+    &__link {
+        &::before {
+            color: $color;
+            font-size: $size;
+            display: inline-block;
+            font-style: normal;
+            text-rendering: auto; // use vector info
+            -webkit-font-smoothing: antialiased;
+            font-family: 'Font Awesome 6 Brands';
+        }
+
+        &[id='facebook']::before {
+            content: '\f39e'; // unicode - fontawesome
+        }
+        &[id='github']::before {
+            content: '\f09b';
+        }
+        &[id='tiktok']::before {
+            content: '\e07b';
+        }
+        &[id='instagram']::before {
+            content: '\f16d';
+        }
+        &[id='youtube']::before {
+            content: '\f167';
+        }
+        &[id='twitter']::before {
+            content: '\f099';
+        }
+    }
+
+    &__hidden {
+        display: none;
+    }
+}
