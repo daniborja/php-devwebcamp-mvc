@@ -93,7 +93,7 @@ class AuthController
         ]);
     }
 
-    public static function forgot_password(Router $router)
+    public static function forgotPassword(Router $router)
     {
         $alerts = [];
 
@@ -130,7 +130,7 @@ class AuthController
         ]);
     }
 
-    public static function reset_password(Router $router)
+    public static function resetPassword(Router $router)
     {
         $alerts = [];
         $hasError = false;
@@ -179,14 +179,14 @@ class AuthController
         ]);
     }
 
-    public static function confirm_account(Router $router)
+    public static function confirmAccount(Router $router)
     {
         $token = s($_GET['token']);
         if (!$token) header('Location: /');
 
         $user = User::where('token', $token);
         if (empty($user)) {
-            User::setAlert('error', 'Invalid token!');
+            User::setAlert('error', 'Token No Válido, la cuenta no se confirmó');
         } else {
             // confirm account
             $user->confirmed = 1;
@@ -195,7 +195,7 @@ class AuthController
 
             $user->save();
 
-            User::setAlert('success', 'Cuenta comporbada correctamente');
+            User::setAlert('success', 'Cuenta Comprobada Exitosamente');
         }
 
         $alerts = User::getAlerts();

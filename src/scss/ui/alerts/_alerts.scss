@@ -9,7 +9,9 @@
     font-weight: v.$bold;
 
     &__success {
-        background-color: lighten(v.$red, 60%);
+        background-color: lighten(v.$green, 50%);
+        border-left: 0.5rem solid v.$green;
+        color: darken(v.$green, 20%);
     }
 
     &__error {

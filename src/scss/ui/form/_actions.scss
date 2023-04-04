@@ -6,4 +6,15 @@
     display: flex;
     justify-content: space-between;
     font-weight: v.$thin;
+
+    &--center {
+        // @extend .actions;
+        justify-content: center;
+    }
+
+    &__link {
+        color: v.$black;
+        font-size: 1.5rem;
+        font-weight: v.$thin;
+    }
 }

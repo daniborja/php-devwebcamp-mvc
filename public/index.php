@@ -19,16 +19,16 @@ $router->get('/registro', [AuthController::class, 'register']);
 $router->post('/registro', [AuthController::class, 'register']);
 
 // password recovery
-$router->get('/olvide-password', [AuthController::class, 'forgot_password']);
-$router->post('/olvide-password', [AuthController::class, 'forgot_password']);
+$router->get('/olvide-password', [AuthController::class, 'forgotPassword']);
+$router->post('/olvide-password', [AuthController::class, 'forgotPassword']);
 
 // reset pass
-$router->get('/reset-password', [AuthController::class, 'reset_password']);
-$router->post('/reset-password', [AuthController::class, 'reset_password']);
+$router->get('/reset-password', [AuthController::class, 'resetPassword']);
+$router->post('/reset-password', [AuthController::class, 'resetPassword']);
 
 // confirm account
 $router->get('/mensaje', [AuthController::class, 'message']);
-$router->get('/confirmar-cuenta', [AuthController::class, 'confirm_account']);
+$router->get('/confirmar-cuenta', [AuthController::class, 'confirmAccount']);
 
 
 
