@@ -68,6 +68,9 @@ class AuthController
                 } else {
                     // // create new user
                     $user->hashPassword();
+
+                    // clear user active record - delete att
+                    unset($user->password2);
                 }
             }
         }
