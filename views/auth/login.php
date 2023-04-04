@@ -9,7 +9,7 @@
         </div>
 
         <div class="form__field">
-            <label for="password" class="form__label">Email</label>
+            <label for="password" class="form__label">Password</label>
             <input type="password" id="password" name="password" placeholder="Tu Password" class="form__input">
         </div>
 

@@ -67,7 +67,6 @@ class AuthController
                     $alerts = User::getAlerts();
                 } else {
                     // // create new user
-                    // hash pass
                     $user->hashPassword();
                 }
             }
@@ -75,7 +74,7 @@ class AuthController
 
         // render view
         $router->render('auth/register', [
-            'title' => 'Crea tu cuenta en UpTask',
+            'title' => 'Crea tu cuenta',
             'user' => $user,
             'alerts' => $alerts,
         ]);
