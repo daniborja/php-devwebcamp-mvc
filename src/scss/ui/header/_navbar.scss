@@ -1,0 +1,23 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+
+.navbar {
+    background-color: v.$blue;
+
+    &__content {
+        @include m.container;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        @include m.desktop {
+            flex-direction: row;
+            justify-content: space-between;
+        }
+    }
+
+    &__logo {
+        @include m.logo;
+        @include m.fluid-text(2rem, 3rem);
+    }
+}

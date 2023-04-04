@@ -82,3 +82,14 @@
     background-clip: text;
     color: transparent;
 }
+
+@mixin logo {
+    color: v.$white;
+    text-align: center;
+    margin-bottom: 2rem;
+
+    @include desktop {
+        text-align: left;
+        margin: 0;
+    }
+}
