@@ -23,8 +23,8 @@ $router->get('/olvide-password', [AuthController::class, 'forgotPassword']);
 $router->post('/olvide-password', [AuthController::class, 'forgotPassword']);
 
 // reset pass
-$router->get('/reset-password', [AuthController::class, 'resetPassword']);
-$router->post('/reset-password', [AuthController::class, 'resetPassword']);
+$router->get('/recuperar-password', [AuthController::class, 'resetPassword']);
+$router->post('/recuperar-password', [AuthController::class, 'resetPassword']);
 
 // confirm account
 $router->get('/mensaje', [AuthController::class, 'message']);

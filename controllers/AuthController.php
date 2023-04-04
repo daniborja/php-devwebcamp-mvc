@@ -110,9 +110,9 @@ class AuthController
 
                     $user->save();
 
-                    // // send emial
-                    // $email = new Email($user->email, $user->name, $user->token);
-
+                    // send emial
+                    $email = new Email($user->email, $user->name, $user->token);
+                    $email->sendRecoveryInstructions();
 
                     User::setAlert('success', 'Hemos enviado las instrucciones a tu email');
                 } else {
@@ -122,6 +122,7 @@ class AuthController
         }
 
         $alerts = User::getAlerts();
+
 
         // render view
         $router->render('auth/forgot-password', [
@@ -139,7 +140,7 @@ class AuthController
 
         $user = User::where('token', $token);
         if (empty($user)) {
-            User::setAlert('error', 'Token Invalido!');
+            User::setAlert('error', 'Token Inválido!');
             $hasError = true;
         }
 
@@ -156,7 +157,7 @@ class AuthController
 
                 $result = $user->save();
 
-                if ($result) header('Location: /');
+                if ($result) header('Location: /login');
             }
         }
 
@@ -186,7 +187,7 @@ class AuthController
 
         $user = User::where('token', $token);
         if (empty($user)) {
-            User::setAlert('error', 'Token No Válido, la cuenta no se confirmó');
+            User::setAlert('error', 'Token Inválido, la cuenta no se confirmó');
         } else {
             // confirm account
             $user->confirmed = 1;
