@@ -71,6 +71,9 @@ class AuthController
 
                     // clear user active record - delete att
                     unset($user->password2);
+
+                    $result = $user->save();
+                    if ($result) header('Location: /message');
                 }
             }
         }
@@ -100,8 +103,8 @@ class AuthController
 
                     $user->save();
 
-                    // send emial
-                    $email = new Email($user->email, $user->name, $user->token);
+                    // // send emial
+                    // $email = new Email($user->email, $user->name, $user->token);
 
 
                     User::setAlert('success', 'Hemos enviado las instrucciones a tu email');
