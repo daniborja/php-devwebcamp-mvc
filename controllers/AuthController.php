@@ -72,8 +72,15 @@ class AuthController
                     // clear user active record - delete att
                     unset($user->password2);
 
+                    $user->createTempToken();
+
+                    // send email
+                    $email = new Email($user->email, $user->name, $user->token);
+                    $email->sendConfirmationEmail();
+
+
                     $result = $user->save();
-                    if ($result) header('Location: /message');
+                    if ($result) header('Location: /mensaje');
                 }
             }
         }

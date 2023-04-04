@@ -98,6 +98,13 @@ class User extends ActiveRecord
     }
 
 
+    // gen temp confirm token
+    public function createTempToken()
+    {
+        $this->token = md5(uniqid());
+    }
+
+
     public function comprobar_password(): bool
     {
         return password_verify($this->password_actual, $this->password);
