@@ -11,9 +11,9 @@
         </div>
 
         <div class="form__field">
-            <!-- lastName as AR needed: lastName = $user->lastName -->
-            <label for="lastName" class="form__label">Apellido</label>
-            <input type="text" id="lastName" name="lastName" placeholder="Tu Apellido" class="form__input" value="<?php echo $user->lastName; ?>">
+            <!-- last_name as AR required: last_name = $user->last_name -->
+            <label for="last_name" class="form__label">Apellido</label>
+            <input type="text" id="last_name" name="last_name" placeholder="Tu Apellido" class="form__input" value="<?php echo $user->last_name; ?>">
         </div>
 
         <div class="form__field">

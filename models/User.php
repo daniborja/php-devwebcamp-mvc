@@ -11,13 +11,13 @@ class User extends ActiveRecord
     {
         $this->id = $args['id'] ?? null;
         $this->name = $args['name'] ?? '';
-        $this->lastName = $args['last_name'] ?? '';
+        $this->last_name = $args['last_name'] ?? '';
         $this->email = $args['email'] ?? '';
         $this->password = $args['password'] ?? '';
         $this->password2 = $args['password2'] ?? '';
         $this->confirmed = $args['confirmed'] ?? 0;
         $this->token = $args['token'] ?? '';
-        $this->isAdmin = $args['is_admin'] ?? 0;
+        $this->is_admin = $args['is_admin'] ?? 0;
     }
 
 
@@ -41,7 +41,7 @@ class User extends ActiveRecord
         if (!$this->name) {
             self::$alerts['error'][] = 'El Nombre es Obligatorio';
         }
-        if (!$this->lastName) {
+        if (!$this->last_name) {
             self::$alerts['error'][] = 'El Apellido es Obligatorio';
         }
         if (!$this->email) {

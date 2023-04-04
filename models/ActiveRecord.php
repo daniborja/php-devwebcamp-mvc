@@ -186,11 +186,12 @@ class ActiveRecord
         $attributes = [];
         foreach (static::$dbColumns as $column) {
             if ($column === 'id') continue;
-            $attributeValue = $column;
 
-            $column = str_replace('_', '', lcfirst(ucwords($column, '_')));
+            // // try to use camelCase in all place, but not
+            // $attributeValue = $column;
+            // $column = str_replace('_', '', lcfirst(ucwords($column, '_')));
 
-            $attributes[$attributeValue] = $this->$column;
+            $attributes[$column] = $this->$column;
         }
 
         // debugging($attributes);
