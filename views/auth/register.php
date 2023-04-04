@@ -2,19 +2,25 @@
     <h2 class="auth__heading"><?php echo $title ?></h2>
     <p class="auth__text">Regístrate en DevWebcamp</p>
 
-    <?php 
-        require_once __DIR__ . '/../templates/alerts.php'
+    <?php
+    require_once __DIR__ . '/../templates/alerts.php'
     ?>
-    
+
     <form method="POST" action="/registro" class="form">
         <div class="form__field">
             <label for="name" class="form__label">Nombre</label>
-            <input type="text" id="name" name="name" placeholder="Tu Nombre" class="form__input">
+            <input type="text" id="name" name="name" placeholder="Tu Nombre" class="form__input" value="<?php echo $user->name; ?>">
         </div>
 
         <div class="form__field">
-            <label for="last_name" class="form__label">Apellido</label>
-            <input type="text" id="last_name" name="last_name" placeholder="Tu Apellido" class="form__input">
+            <!-- lastName as AR needed: lastName = $user->lastName -->
+            <label for="lastName" class="form__label">Apellido</label>
+            <input type="text" id="lastName" name="lastName" placeholder="Tu Apellido" class="form__input" value="<?php echo $user->lastName; ?>">
+        </div>
+
+        <div class="form__field">
+            <label for="email" class="form__label">Email</label>
+            <input type="email" id="email" name="email" placeholder="Tu Email" class="form__input" value="<?php echo $user->email; ?>">
         </div>
 
         <div class="form__field">

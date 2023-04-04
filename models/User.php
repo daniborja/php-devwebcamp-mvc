@@ -17,7 +17,7 @@ class User extends ActiveRecord
         $this->password2 = $args['password2'] ?? '';
         $this->confirmed = $args['confirmed'] ?? 0;
         $this->token = $args['token'] ?? '';
-        $this->isAdmin = $args['is_admin'] ?? '';
+        $this->isAdmin = $args['is_admin'] ?? 0;
     }
 
 
