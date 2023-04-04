@@ -27,9 +27,12 @@ class AuthController
                     $_SESSION['id'] = $user->id;
                     $_SESSION['name'] = $user->name;
                     $_SESSION['email'] = $user->email;
-                    $_SESSION['isLoggedIn'] = true;
+                    $_SESSION['is_logged_in'] = true;
+                    $_SESSION['is_admin'] = $user->is_admin ?? null;
 
-                    header('Location: /dashboard');
+                    // role-based redirection
+                    if ($user->is_admin) header('Location: /admin/dashboard');
+                    else header('Location: /finalizar-registro');
                 }
             }
         }
