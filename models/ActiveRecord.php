@@ -180,14 +180,20 @@ class ActiveRecord
 
 
 
-    // Identificar y unir los atributos de la BD
+    // identify and link DB attributes
     public function attributes()
     {
         $attributes = [];
-        foreach (static::$dbColumns as $columna) {
-            if ($columna === 'id') continue;
-            $attributes[$columna] = $this->$columna;
+        foreach (static::$dbColumns as $column) {
+            if ($column === 'id') continue;
+            $attributeValue = $column;
+
+            $column = str_replace('_', '', lcfirst(ucwords($column, '_')));
+
+            $attributes[$attributeValue] = $this->$column;
         }
+
+        // debugging($attributes);
         return $attributes;
     }
 
