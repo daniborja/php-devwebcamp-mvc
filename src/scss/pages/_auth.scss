@@ -1,8 +1,12 @@
 @use 'base/mixins' as m;
 
 .auth {
-    @include m.container;
+    @include m.container-sm;
 
     // // auth__heading
     // &__heading {}    <- no necesary 'cause of mixim
+}
+
+.auth__texto {
+    font-size: 2rem;
 }
