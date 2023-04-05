@@ -3,6 +3,7 @@
 require_once __DIR__ . '/../includes/app.php';
 
 use Controllers\AuthController;
+use Controllers\DashboardController;
 use MVC\Router;
 
 $router = new Router();
@@ -30,6 +31,10 @@ $router->post('/recuperar-password', [AuthController::class, 'resetPassword']);
 $router->get('/mensaje', [AuthController::class, 'message']);
 $router->get('/confirmar-cuenta', [AuthController::class, 'confirmAccount']);
 
+
+
+// // // admin
+$router->get('/admin/dashboard', [DashboardController::class, 'index']);
 
 
 
