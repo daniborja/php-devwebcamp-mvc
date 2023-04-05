@@ -1,5 +1,5 @@
-<fieldset>
-    <legend class="formulario__legend">Información Personal</legend>
+<fieldset class="form__fieldset">
+    <legend class="form__legend">Información Personal</legend>
 
     <div class="form__field">
         <label for="name" class="form__label">Nombre</label>
@@ -14,7 +14,7 @@
     </div>
     
     <div class="form__field">
-        <label for="last_name" class="form__label">Nombre</label>
+        <label for="last_name" class="form__label">Apellido</label>
         <input
             type="text"
             class="form__input"

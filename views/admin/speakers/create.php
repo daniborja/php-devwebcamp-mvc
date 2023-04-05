@@ -7,7 +7,7 @@
     </a>
 </div>
 
-<div class="dashboard__form">
+<div class="dashboard__form-container">
 
     <?php include_once __DIR__ . './../../templates/alerts.php'; ?>
 
@@ -16,7 +16,7 @@
         <?php include_once __DIR__ . '/form.php'; ?>
 
 
-        <input type="submit" value="Registrar Ponente" class="form__submit">
+        <input type="submit" value="Registrar Ponente" class="form__submit form__submit--register">
     </form>
 
 </div>

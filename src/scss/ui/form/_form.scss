@@ -5,6 +5,18 @@
     display: flex;
     flex-direction: column;
 
+    &__fieldset {
+        border: none;
+        margin-top: 1rem;
+        padding: 0;
+    }
+
+    &__legend {
+        color: v.$gray;
+        font-size: 2.2rem;
+        margin-bottom: 2rem;
+    }
+
     &__field {
         display: flex;
         flex-direction: column;
@@ -12,7 +24,7 @@
         margin: 1.5rem 0;
     }
 
-    // no anidamos gracias a scss y bems
+    // no anidamos gracias a scss y bem
     &__label {
         display: block;
         font-size: 1.8rem;
@@ -29,5 +41,10 @@
         @include m.button(v.$blue, v.$white);
         width: auto;
         align-self: flex-start;
+
+        &--register {
+            width: 100%;
+            margin-top: 1rem;
+        }
     }
 }
