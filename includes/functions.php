@@ -23,3 +23,8 @@ function isAuth(): void
         header('Location: /');
     }
 }
+
+function isActiveLink($path): bool
+{
+    return str_contains($_SERVER['PATH_INFO'], $path) ? true : false;
+}

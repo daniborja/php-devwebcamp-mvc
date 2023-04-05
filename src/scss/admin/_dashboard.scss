@@ -68,7 +68,8 @@
             margin-top: 1.5rem;
         }
 
-        &:hover {
+        &:hover,
+        &--active {
             background-color: lighten(v.$dark-gray, 20);
             color: v.$white;
             border-radius: 0.6rem;
