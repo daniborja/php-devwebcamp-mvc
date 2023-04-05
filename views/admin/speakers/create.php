@@ -2,7 +2,7 @@
 
 <div class="dashboard__container-button">
     <a href="/admin/ponentes/crear" class="dashboard__button">
-        <i class="fa-solid fa-circle-plus"></i>
-        Añadir Ponente
+        <i class="fa-solid fa-circle-arrow-left"></i>
+        Volver
     </a>
 </div>
