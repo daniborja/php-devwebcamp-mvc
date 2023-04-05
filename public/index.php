@@ -4,6 +4,7 @@ require_once __DIR__ . '/../includes/app.php';
 
 use Controllers\AuthController;
 use Controllers\DashboardController;
+use Controllers\SpeakersController;
 use MVC\Router;
 
 $router = new Router();
@@ -35,6 +36,7 @@ $router->get('/confirmar-cuenta', [AuthController::class, 'confirmAccount']);
 
 // // // admin
 $router->get('/admin/dashboard', [DashboardController::class, 'index']);
+$router->get('/admin/ponentes', [SpeakersController::class, 'index']);
 
 
 
