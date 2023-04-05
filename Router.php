@@ -20,13 +20,13 @@ class Router
     public function checkRoutes()
     {
 
-        $url_actual = $_SERVER['PATH_INFO'] ?? '/';
+        $current_url = $_SERVER['PATH_INFO'] ?? '/';
         $method = $_SERVER['REQUEST_METHOD'];
 
         if ($method === 'GET') {
-            $fn = $this->getRoutes[$url_actual] ?? null;
+            $fn = $this->getRoutes[$current_url] ?? null;
         } else {
-            $fn = $this->postRoutes[$url_actual] ?? null;
+            $fn = $this->postRoutes[$current_url] ?? null;
         }
 
         if ($fn) {
@@ -48,6 +48,12 @@ class Router
 
         $content = ob_get_clean(); // clean Buffer
 
-        include_once __DIR__ . '/views/layout.php';
+        // render url-based layout
+        $current_url = $_SERVER['PATH_INFO'] ?? '/';
+        if (str_starts_with($current_url, '/admin')) {
+            include_once __DIR__ . '/views/admin-layout.php';
+        } else {
+            include_once __DIR__ . '/views/layout.php';
+        }
     }
 }
