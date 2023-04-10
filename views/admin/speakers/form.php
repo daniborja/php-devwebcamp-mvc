@@ -74,8 +74,8 @@
             placeholder="Ej. Node.js, PHP, TypeScript, Next.js, Nest.js"
         >
 
-        <div class="form_list">
-
+        <div class="form__container--list">
+            <ul id="tags" class="form__list"></ul>
         </div>
         <input type="hidden" name="tags" value="<?php echo $speaker->tags ?? ''; ?>">
     </div>
