@@ -24,6 +24,24 @@
         margin: 1.5rem 0;
     }
 
+    &__container-icon {
+        display: flex;
+        border-radius: 0.5rem;
+        overflow: hidden;
+    }
+    &__icon {
+        background-color: v.$dark-gray;
+        width: 4rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        i {
+            color: v.$white;
+            font-size: 2rem;
+        }
+    }
+
     // no anidamos gracias a scss y bem
     &__label {
         display: block;
@@ -35,6 +53,18 @@
         padding: 1rem;
         border: 1px solid darken(v.$light-gray, 20);
         border-radius: 0.5rem;
+
+        &--file {
+            border: none;
+        }
+
+        // __ class | - class 2 names | -- modifier
+        &--socials {
+            @extend .form__input;
+            flex: 1;
+            border-top-left-radius: 0;
+            border-bottom-left-radius: 0;
+        }
     }
 
     &__submit {
