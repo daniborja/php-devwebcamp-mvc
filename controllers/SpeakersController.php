@@ -12,7 +12,7 @@ class SpeakersController
     public static function index(Router $router)
     {
         $speakers = Speaker::all();
-        
+
 
         $router->render('admin/speakers/index', [
             'title' => 'Ponentes / Conferencistas',
@@ -68,6 +68,27 @@ class SpeakersController
 
         $router->render('admin/speakers/create', [
             'title' => 'Registrar Ponente',
+            'alerts' => $alerts,
+            'speaker' => $speaker
+        ]);
+    }
+
+
+    public static function edit(Router $router)
+    {
+        $alerts = [];
+
+        // check id
+        $id = $_GET['id'];
+        $id = filter_var($id, FILTER_VALIDATE_INT);
+        if (!$id) header('Location: /admin/ponentes');
+
+        $speaker = Speaker::find($id);
+        if(!$speaker) header('Location: /admin/ponentes');
+
+
+        $router->render('admin/speakers/edit', [
+            'title' => 'Editar Ponente',
             'alerts' => $alerts,
             'speaker' => $speaker
         ]);

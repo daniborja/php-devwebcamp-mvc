@@ -168,7 +168,7 @@
     flex-wrap: wrap;
     gap: 1.5rem;
     margin-top: 1.5rem;
-
+    
     // 1st child level
     > li {
         background-color: v.$blue;
@@ -177,5 +177,6 @@
         font-size: 1.4rem;
         color: v.$white;
         font-weight: v.$bold;
+        cursor: pointer;
     }
 }

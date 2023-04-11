@@ -37,12 +37,17 @@ $router->get('/confirmar-cuenta', [AuthController::class, 'confirmAccount']);
 
 
 
+
 // // // admin
 $router->get('/admin/dashboard', [DashboardController::class, 'index']);
+
 
 $router->get('/admin/ponentes', [SpeakersController::class, 'index']);
 $router->get('/admin/ponentes/crear', [SpeakersController::class, 'create']);
 $router->post('/admin/ponentes/crear', [SpeakersController::class, 'create']);
+$router->get('/admin/ponentes/editar', [SpeakersController::class, 'edit']);
+$router->post('/admin/ponentes/editar', [SpeakersController::class, 'edit']);
+
 
 $router->get('/admin/eventos', [EventsController::class, 'index']);
 

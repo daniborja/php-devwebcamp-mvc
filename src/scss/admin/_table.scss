@@ -35,6 +35,7 @@
         text-transform: uppercase;
         font-size: 1.4rem;
         font-weight: v.$bold;
+        cursor: pointer;
 
         &--edit {
             color: v.$blue;
