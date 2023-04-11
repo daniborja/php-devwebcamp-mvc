@@ -2,6 +2,7 @@
 
 namespace Controllers;
 
+use Classes\Paging;
 use Model\Speaker;
 use MVC\Router;
 use Intervention\Image\ImageManagerStatic as Image;
@@ -13,11 +14,25 @@ class SpeakersController
     {
         if (!isAdmin()) header('Location: /login');
 
-        $speakers = Speaker::all();
+        // // paging:
+        $current_page = $_GET['page'];
+        $current_page = filter_var($current_page, FILTER_VALIDATE_INT);
+        if (!$current_page || $current_page < 1) header('Location: /admin/ponentes?page=1');
+
+        $records_per_page = 10;
+        $total_records = Speaker::countTotalRecords();
+
+        $pagination = new Paging($current_page, $records_per_page, $total_records);
+        if ($pagination->totalPages() < $current_page) header('Location: /admin/ponentes?page=1');
+
+
+        // // render
+        $speakers = Speaker::paging($records_per_page, $pagination->offset());
 
         $router->render('admin/speakers/index', [
             'title' => 'Ponentes / Conferencistas',
-            'speakers' => $speakers
+            'speakers' => $speakers,
+            'pagination' => $pagination->pagination()
         ]);
     }
 

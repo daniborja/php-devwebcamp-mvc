@@ -62,12 +62,20 @@ class ActiveRecord
         return array_shift($result);
     }
 
-    // get register
+    // get records
     public static function get($limit)
     {
         $query = "SELECT * FROM " . static::$table . " LIMIT $limit";
         $result = self::sqlQuery($query);
         return array_shift($result);
+    }
+
+    // paginate records
+    public static function paging($per_page, $offset)
+    {
+        $query = "SELECT * FROM " . static::$table . " ORDER BY id DESC LIMIT $per_page OFFSET $offset";
+        $result = self::sqlQuery($query);
+        return $result;
     }
 
     // search by column (WHERE)
@@ -178,6 +186,15 @@ class ActiveRecord
         return $object;
     }
 
+
+    public static function countTotalRecords()
+    {
+        $query = "SELECT COUNT(*) FROM " . static::$table;
+        $result = self::$db->query($query);
+        $total = $result->fetch_array();
+
+        return array_shift($total);    // str
+    }
 
 
     // identify and link DB attributes
