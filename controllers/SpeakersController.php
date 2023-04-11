@@ -85,10 +85,52 @@ class SpeakersController
         if (!$id) header('Location: /admin/ponentes');
 
         $speaker = Speaker::find($id);
-        if(!$speaker) header('Location: /admin/ponentes');
+        if (!$speaker) header('Location: /admin/ponentes');
 
         // img
         $speaker->current_image = $speaker->image;
+
+
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            // hanlde img: If there is an img, then update it
+            if (!empty($_FILES['image']['tmp_name'])) {
+                $images_dir = '../public/img/speakers';
+
+                // delete previous img
+                unlink($images_dir . '/' . $speaker->current_image . ".png");
+                unlink($images_dir . '/' . $speaker->current_image . ".webp");
+
+                // create dir if it does not exist
+                if (!is_dir($images_dir)) mkdir($images_dir, 0755, true);
+
+                $image_png = Image::make($_FILES['image']['tmp_name'])->fit(800, 800)->encode('png', 80);
+                $image_webp = Image::make($_FILES['image']['tmp_name'])->fit(800, 800)->encode('webp', 80);
+
+
+                $image_name = md5(uniqid(rand(), true));
+
+                $_POST['image'] = $image_name;
+            } else {
+                $_POST['image'] = $speaker->current_image;
+            }
+
+            // rewrite networks associtive arr
+            $_POST['networks'] = json_encode($_POST['networks'], JSON_UNESCAPED_SLASHES);
+            $speaker->synchronize($_POST);
+            $alerts = $speaker->validate();
+
+            if (empty($alerts)) {
+                // save img
+                if (isset($image_name)) {
+                    $image_png->save($images_dir . '/' . $image_name . '.png');
+                    $image_webp->save($images_dir . '/' . $image_name . '.webp');
+                }
+
+                $result = $speaker->save();
+
+                if ($result) header('Location: /admin/ponentes');
+            }
+        }
 
 
         $router->render('admin/speakers/edit', [
