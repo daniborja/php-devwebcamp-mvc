@@ -112,7 +112,7 @@
             class="form__input--socials"
             name="networks[facebook]"
             placeholder="Facebook"
-            value="<?php echo $speaker->facebook ?? '' ?>"
+            value="<?php echo $networks->facebook ?? '' ?>"
             >
         </div>
     </div>
@@ -128,7 +128,7 @@
             class="form__input--socials"
             name="networks[twitter]"
             placeholder="Twitter"
-            value="<?php echo $speaker->twitter ?? '' ?>"
+            value="<?php echo $networks->twitter ?? '' ?>"
             >
         </div>
     </div>
@@ -144,7 +144,7 @@
             class="form__input--socials"
             name="networks[youtube]"
             placeholder="YouTube"
-            value="<?php echo $speaker->youtube ?? '' ?>"
+            value="<?php echo $networks->youtube ?? '' ?>"
             >
         </div>
     </div>
@@ -160,7 +160,7 @@
             class="form__input--socials"
             name="networks[instagram]"
             placeholder="Instagram"
-            value="<?php echo $speaker->instagram ?? '' ?>"
+            value="<?php echo $networks->instagram ?? '' ?>"
             >
         </div>
     </div>
@@ -176,7 +176,7 @@
             class="form__input--socials"
             name="networks[tiktok]"
             placeholder="Tiktok"
-            value="<?php echo $speaker->tiktok ?? '' ?>"
+            value="<?php echo $networks->tiktok ?? '' ?>"
             >
         </div>
     </div>
@@ -192,7 +192,7 @@
             class="form__input--socials"
             name="networks[github]"
             placeholder="GitHub"
-            value="<?php echo $speaker->github ?? '' ?>"
+            value="<?php echo $networks->github ?? '' ?>"
             >
         </div>
     </div>
