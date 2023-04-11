@@ -86,6 +86,9 @@ class SpeakersController
         $speaker = Speaker::find($id);
         if(!$speaker) header('Location: /admin/ponentes');
 
+        // img
+        $speaker->current_image = $speaker->image;
+
 
         $router->render('admin/speakers/edit', [
             'title' => 'Editar Ponente',

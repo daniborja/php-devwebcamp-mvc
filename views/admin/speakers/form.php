@@ -58,6 +58,21 @@
             name="image"
         >
     </div>
+
+    <!-- temp var for edit -->
+    <?php if (isset($speaker->current_image)) { ?>
+        <p class="form__text">Imagen Actual:</p>
+        <div class="form__image">
+            <picture>
+                <source srcset="<?php echo $_ENV['HOST'] . '/img/speakers/' . $speaker->image; ?>.webp" type="image/webp">
+                <source srcset="<?php echo $_ENV['HOST'] . '/img/speakers/' . $speaker->image; ?>.png" type="image/png">
+                <img
+                    src="<?php echo $_ENV['HOST'] . '/img/speakers/' . $speaker->image; ?>.png"
+                    alt="Imagen Ponente"
+                >
+            </picture>
+        </div>
+    <?php } ?>
 </fieldset>
 
 
