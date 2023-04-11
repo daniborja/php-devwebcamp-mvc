@@ -10,9 +10,9 @@
 
 <div class="dashboard__container">
     <?php if (!empty($speakers)) { ?>
-        <table>
-            <thead>
-                <tr>
+        <table class="table">
+            <thead class="table__thead">
+                <tr class="table__tr">
                     <th scope="col" class="table__th">Nombre</th>
                     <th scope="col" class="table__th">Ubicación</th>
                     <th scope="col" class="table__th"></th>
@@ -30,12 +30,12 @@
                         </td>
 
                         <td class="table__td--actions">
-                            <a href="/admin/ponentes/editar?id=<?php echo $speaker->id ?>">
+                            <a href="/admin/ponentes/editar?id=<?php echo $speaker->id ?>" class="table__action table__action--edit">
                                 <i class="fa-solid fa-user-pen"></i>
                                 Editar
                             </a>
                             <form action="" class="table__form">
-                                <button type="submit">
+                                <button type="submit" class="table__action table__action--delete">
                                     <i class="fa-solid fa-circle-xmark"></i>
                                     Eliminar
                                 </button>

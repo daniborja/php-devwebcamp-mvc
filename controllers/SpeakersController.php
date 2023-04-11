@@ -20,6 +20,7 @@ class SpeakersController
         ]);
     }
 
+
     public static function create(Router $router)
     {
         $alerts = [];
