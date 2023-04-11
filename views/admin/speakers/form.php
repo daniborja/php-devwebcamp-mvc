@@ -64,11 +64,12 @@
         <p class="form__text">Imagen Actual:</p>
         <div class="form__image">
             <picture>
-                <source srcset="<?php echo $_ENV['HOST'] . '/img/speakers/' . $speaker->image; ?>.webp" type="image/webp">
-                <source srcset="<?php echo $_ENV['HOST'] . '/img/speakers/' . $speaker->image; ?>.png" type="image/png">
+                <source srcset="<?php echo $_ENV['HOST'] . '/img/speakers/' . $speaker->image; ?>.webp" type="image/webp" draggable="false" >
+                <source srcset="<?php echo $_ENV['HOST'] . '/img/speakers/' . $speaker->image; ?>.png" type="image/png" draggable="false" >
                 <img
                     src="<?php echo $_ENV['HOST'] . '/img/speakers/' . $speaker->image; ?>.png"
                     alt="Imagen Ponente"
+                    draggable="false"
                 >
             </picture>
         </div>
