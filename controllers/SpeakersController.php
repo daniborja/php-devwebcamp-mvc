@@ -140,4 +140,17 @@ class SpeakersController
             'networks' => json_decode($speaker->networks)
         ]);
     }
+
+
+    public static function delete()
+    {
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $id = $_POST['id'];
+            $speaker = Speaker::find($id);
+            if (!isset($speaker)) header('Location: /admin/ponentes');
+
+            $result = $speaker->delete();
+            if($result) header('Location: /admin/ponentes');
+        }
+    }
 }
