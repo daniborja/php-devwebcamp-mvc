@@ -49,4 +49,10 @@
 
     // listeners
     tagsInput.addEventListener('keypress', saveTag);
+
+    // get tags from input hidden
+    if (!!tagsInputHidden.value) {
+        tags = tagsInputHidden.value.split(',');
+        showTags();
+    }
 })();

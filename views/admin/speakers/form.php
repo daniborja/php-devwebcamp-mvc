@@ -59,7 +59,7 @@
         >
     </div>
 
-    <!-- temp var for edit -->
+    <!-- image: temp var for edit -->
     <?php if (isset($speaker->current_image)) { ?>
         <p class="form__text">Imagen Actual:</p>
         <div class="form__image">
@@ -80,7 +80,7 @@
 <fieldset class="form__fieldset">
     <legend class="form__legend">Información Extra</legend>
 
-    <div class="form__field">
+    <div class="form__field" onselectstart="return false">
         <label for="tags_input" class="form__label">Áreas de Experiencia (separadas por coma)</label>
         <input
             type="text"
