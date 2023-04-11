@@ -11,8 +11,9 @@ class SpeakersController
 {
     public static function index(Router $router)
     {
-        $speakers = Speaker::all();
+        if (!isAdmin()) header('Location: /login');
 
+        $speakers = Speaker::all();
 
         $router->render('admin/speakers/index', [
             'title' => 'Ponentes / Conferencistas',
@@ -23,11 +24,15 @@ class SpeakersController
 
     public static function create(Router $router)
     {
+        if (!isAdmin()) header('Location: /login');
+
         $alerts = [];
         $speaker = new Speaker;
 
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            if (!isAdmin()) header('Location: /login');
+
             // hanlde img:
             if (!empty($_FILES['image']['tmp_name'])) {
                 $images_dir = '../public/img/speakers';
@@ -77,6 +82,7 @@ class SpeakersController
 
     public static function edit(Router $router)
     {
+        if (!isAdmin()) header('Location: /login');
         $alerts = [];
 
         // check id
@@ -92,6 +98,8 @@ class SpeakersController
 
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            if (!isAdmin()) header('Location: /login');
+
             // hanlde img: If there is an img, then update it
             if (!empty($_FILES['image']['tmp_name'])) {
                 $images_dir = '../public/img/speakers';
@@ -144,13 +152,17 @@ class SpeakersController
 
     public static function delete()
     {
+        if (!isAdmin()) header('Location: /login');
+
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            if (!isAdmin()) header('Location: /login');
+
             $id = $_POST['id'];
             $speaker = Speaker::find($id);
             if (!isset($speaker)) header('Location: /admin/ponentes');
 
             $result = $speaker->delete();
-            if($result) header('Location: /admin/ponentes');
+            if ($result) header('Location: /admin/ponentes');
         }
     }
 }

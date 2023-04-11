@@ -17,12 +17,21 @@ function s($html): string
 }
 
 // check authentication status
-function isAuth(): void
+function isAuth(): bool
 {
-    if (!isset($_SESSION['isLoggedIn'])) {
-        header('Location: /');
-    }
+    session_start();
+
+    return !!$_SESSION['is_logged_in'] && isset($_SESSION['email']) && !empty($_SESSION);
 }
+
+function isAdmin(): bool
+{
+    session_start();
+
+    return !!$_SESSION['is_logged_in'] && !!$_SESSION['is_admin'] && !empty($_SESSION);
+}
+
+
 
 function isActiveLink($path): bool
 {
