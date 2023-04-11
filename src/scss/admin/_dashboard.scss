@@ -90,11 +90,12 @@
     &__content {
         padding: 1rem 1rem 3rem 1rem;
         width: 100%;
+        padding-bottom: 6rem;
         // stick sidemenu:
         overflow-y: scroll;
 
         @include m.tablet {
-            padding: 1rem 5rem 3rem 5rem;
+            padding: 1rem 5rem 6rem 5rem;
         }
     }
 
