@@ -4,7 +4,7 @@ namespace Model;
 
 class Speaker extends ActiveRecord
 {
-    protected static $table = 'users';
+    protected static $table = 'speakers';
     protected static $dbColumns = ['id', 'name', 'last_name', 'city', 'country', 'image', 'tags', 'networks'];
 
 

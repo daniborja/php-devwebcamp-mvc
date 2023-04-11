@@ -30,19 +30,34 @@ class SpeakersController
                 // create dir if it does not exist
                 if (!is_dir($images_dir)) mkdir($images_dir, 0755, true);
 
-                $image_png = Image::make($_FILES['image']['tmp_name']->fit(800, 800)->encode('png', 80));
-                $image_webp = Image::make($_FILES['image']['tmp_name']->fit(800, 800)->encode('webp', 80));
+                $image_png = Image::make($_FILES['image']['tmp_name'])->fit(800, 800)->encode('png', 80);
+                $image_webp = Image::make($_FILES['image']['tmp_name'])->fit(800, 800)->encode('webp', 80);
+
 
                 $image_name = md5(uniqid(rand(), true));
 
                 $_POST['image'] = $image_name;
             }
 
+            // rewrite networks associtive arr
+            $_POST['networks'] = json_encode($_POST['networks'], JSON_UNESCAPED_SLASHES);
+
             $speaker->synchronize($_POST);  // no perder data del form when err
             $alerts = $speaker->validate();
 
 
-            
+            // create speaker
+            if (empty($alerts)) {
+                // save imgs - fileSystem
+                $image_png->save($images_dir . '/' . $image_name . '.png');
+                $image_webp->save($images_dir . '/' . $image_name . '.webp');
+
+                // persistimagen
+                // debugging($speaker);
+                $result = $speaker->save();
+
+                if ($result) header('Location: /admin/ponentes');
+            }
         }
 
 
