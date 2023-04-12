@@ -74,6 +74,10 @@
     &__radio {
         display: flex;
         gap: 2rem;
+
+        &--label {
+            cursor: pointer;
+        }
     }
 
     &__text {
