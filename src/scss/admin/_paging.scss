@@ -1,0 +1,33 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+
+.pagination {
+    margin-top: 5rem;
+    margin-bottom: 3rem;
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    justify-content: center;
+
+    @include m.tablet {
+        justify-content: flex-end;
+    }
+
+    &__link {
+        color: v.$blue;
+        font-size: 1.6rem;
+
+        &--text {
+            padding: 1rem;
+            border-radius: 0.5rem;
+            border: 1px solid v.$blue;
+            transition: 270ms background-color ease-in-out, 300ms color ease,
+                270ms border-radius ease;
+
+            &:hover {
+                background-color: v.$blue;
+                color: v.$white;
+            }
+        }
+    }
+}

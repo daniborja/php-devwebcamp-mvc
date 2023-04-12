@@ -44,7 +44,7 @@ class Paging
         $html = '';
 
         if ($this->previousPage()) {
-            $html .= "<a class=\"pagination__link pagination__link--texto\" href=\"?page={$this->previousPage()}\">&laquo; Anterior </a>";
+            $html .= "<a class=\"pagination__link pagination__link--text\" href=\"?page={$this->previousPage()}\">&laquo; Anterior </a>";
         }
 
         return $html;
@@ -55,7 +55,7 @@ class Paging
         $html = '';
 
         if ($this->nextPage()) {
-            $html .= "<a class=\"pagination__link pagination__link--texto\" href=\"?page={$this->nextPage()}\">Siguiente &raquo;</a>";
+            $html .= "<a class=\"pagination__link pagination__link--text\" href=\"?page={$this->nextPage()}\">Siguiente &raquo;</a>";
         }
 
         return $html;
@@ -66,7 +66,7 @@ class Paging
         $html = '';
 
         if ($this->total_records > 1) {
-            $html .= '<div class="paginacion">';
+            $html .= '<div class="pagination">';
             $html .= $this->previousLink();
             $html .= $this->nextLink();
             $html .= '</div>';
