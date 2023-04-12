@@ -15,8 +15,8 @@
     // // fn
     const fetchEvents = async () => {
         const url = `/api/eventos-horario?day_id=${search.day}&category_id=${search.category_id}`;
-        const result = await fetch(url);
-        const events = await result.json();
+        const response = await fetch(url);
+        const events = await response.json();
 
         getAvailableHours(events);
     };

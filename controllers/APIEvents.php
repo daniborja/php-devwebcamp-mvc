@@ -8,6 +8,13 @@ class APIEvents
 {
     public static function index()
     {
+        if (!isAdmin()) {
+            echo json_encode(['success' => false, 'message' => 'Unauthorized']);
+            return;
+        }
+
+
+        // paging
         $day_id = $_GET['day_id'] ?? '';
         $category_id = $_GET['category_id'] ?? '';
 
