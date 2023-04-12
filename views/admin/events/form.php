@@ -55,16 +55,20 @@
                         type="radio"
                         name="day"
                         id="<?php echo strtolower($day->name); ?>"
+                        value="<?php echo $day->id; ?>"
+
                     >
                 </div>
             <?php } ?>
         </div>
+
+        <input type="hidden" name="day_id" value="">
     </div>
 
     <div class="form__field">
         <label for="" class="form__label">Seleccionar Hora</label>
 
-        <ul class="hours">
+        <ul class="hours" id="hours">
             <?php foreach($hours as $hour) { ?>
                 <li class="hours__hour" ><?php echo $hour->hour; ?></li>
             <?php } ?>

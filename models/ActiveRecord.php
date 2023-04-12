@@ -86,6 +86,24 @@ class ActiveRecord
         return array_shift($result);
     }
 
+    // WHERE with multiple options
+    public static function whereArray($array = [])
+    {
+        $query = "SELECT * FROM " . static::$table . " WHERE ";
+
+        foreach ($array as $key => $value) {
+            if ($key == array_key_last($array)) {
+                $query .= " $key = '$value'";
+            } else {
+                $query .= " $key = '$value' AND ";
+            }
+        }
+
+        $resultado = self::sqlQuery($query);
+
+        return $resultado;
+    }
+
     // search for all records belonging to an ID
     public static function belongsTo($column, $value)
     {
