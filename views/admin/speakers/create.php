@@ -11,6 +11,7 @@
 
     <?php include_once __DIR__ . './../../templates/alerts.php'; ?>
 
+    <!-- enctype for imgs/files -->
     <form method="POST" action="/admin/ponentes/crear" enctype="multipart/form-data" class="form">
 
         <?php include_once __DIR__ . '/form.php'; ?>

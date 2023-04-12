@@ -12,4 +12,13 @@ class EventsController
             'title' => 'Conferencias y Workshops'
         ]);
     }
+
+
+    public static function create(Router $router) {
+
+        $router->render('admin/events/create', [
+            'title' => 'Registrar Evento',
+            'alerts' => []
+        ]);
+    }
 }
