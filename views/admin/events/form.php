@@ -68,7 +68,33 @@
                 <li class="hours__hour" ><?php echo $hour->hour; ?></li>
             <?php } ?>
         </ul>
+    </div>
+</fieldset>
 
+
+<fieldset class="form__fieldset">
+    <legend class="form__legend">Información Extra</legend>
+
+    <div class="form__field">
+        <label for="speakers" class="form__label">Ponentes</label>
+        <input
+            type="text"
+            class="form__input"
+            id="speakers"
+            placeholder="Buscar Ponente"
+        >
+    </div>
+
+    <div class="form__field">
+        <label for="available_places" class="form__label">Lugares Disponibles</label>
+        <input
+            type="number"
+            min="1"
+            class="form__input"
+            id="available_places"
+            name="available_places"
+            placeholder="Ej. 20"
+        >
     </div>
 
 </fieldset>
