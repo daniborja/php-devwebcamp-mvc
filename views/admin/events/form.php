@@ -95,6 +95,7 @@
         >
         <div class="speakers-list">
             <ul class="speakers-list__ul" id="speakers-list__ul"></ul>
+            <p class="speakers-list__p"></p>
         </div>
     </div>
 

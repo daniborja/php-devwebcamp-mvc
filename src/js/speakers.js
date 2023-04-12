@@ -3,6 +3,7 @@
     if (!speakersInput) return;
 
     const speakersUl = document.querySelector('#speakers-list__ul');
+    const speakersP = document.querySelector('.speakers-list__p');
 
     let speakers = [];
     let filteredSpeakers = [];
@@ -39,6 +40,7 @@
 
     const renderSpeakers = (searchTerm = '') => {
         let html = '';
+
         if (!filteredSpeakers.length && searchTerm.length >= 3)
             html = `
                 <p class="speakers-list__no-results">No hay resultados para tu búsqueda</p>
@@ -46,11 +48,15 @@
 
         filteredSpeakers.forEach(({ id, name }) => {
             html += `
-                <li class="speakers-list__speaker" data-speaker-id=${id}>${name}</li>
+                <li class="speakers-list__ul__speaker" data-speaker-id=${id}>${name}</li>
             `;
         });
 
-        speakersUl.innerHTML = html;
+        if (filteredSpeakers.length && searchTerm.length >= 3)
+            return (speakersUl.innerHTML = html);
+
+        speakersUl.innerHTML = '';
+        speakersP.innerHTML = html;
     };
 
     // // handlers
@@ -61,11 +67,39 @@
             return renderSpeakers(searchTerm);
         }
 
-        filteredSpeakers = speakers.filter(speaker =>
-            speaker.name.toLowerCase().includes(searchTerm)
+        // filteredSpeakers = speakers.filter(speaker =>
+        //     speaker.name.toLowerCase().includes(searchTerm)
+        // );
+
+        const expression = new RegExp(
+            searchTerm.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'),
+            'i'
         );
+        filteredSpeakers = speakers.filter(speaker => {
+            const speakerName = speaker.name
+                .normalize('NFD')
+                .replace(/[\u0300-\u036f]/g, '')
+                .toLocaleLowerCase('es-ES');
+            return speakerName.search(expression) !== -1;
+        });
 
         renderSpeakers(searchTerm);
+    };
+
+    let selectedSpeaker;
+    const selectSpeaker = e => {
+        const clicked = e.target.closest('.speakers-list__ul__speaker');
+        if (!clicked) return;
+
+        if (selectedSpeaker) {
+            selectedSpeaker.classList.remove(
+                'speakers-list__ul__speaker--selected'
+            );
+        }
+
+        const speakerLi = e.target;
+        speakerLi.classList.add('speakers-list__ul__speaker--selected');
+        selectedSpeaker = speakerLi;
     };
 
     // // listeners
@@ -75,4 +109,6 @@
             handleSearch(e);
         }, 510)
     );
+
+    speakersUl.addEventListener('click', selectSpeaker);
 })();
