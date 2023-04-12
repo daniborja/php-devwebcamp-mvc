@@ -24,4 +24,19 @@
             value="<?php echo $speaker->name ?? '' ?>"
         ></textarea>
     </div>
+
+    <div class="form__field">
+        <label for="category" class="form__label">Categoría o Tipo de Evento</label>
+        <!-- category_id es como le llega el value del select al controller: -->
+        <select name="category_id" id="category" class="form__select">
+            <option value="">- Seleccionar -</option>
+
+            <?php foreach($categories as $category) { ?>
+                <option value="<?php echo $category->id ?>">
+                    <?php echo $category->name; ?>
+                </option>
+            <?php } ?>
+
+        </select>
+    </div>
 </fieldset>

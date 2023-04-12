@@ -49,10 +49,12 @@
         color: rgba(v.$black, 0.8);
     }
 
-    &__input {
+    &__input,
+    &__select {
         padding: 1rem;
         border: 1px solid darken(v.$light-gray, 20);
         border-radius: 0.5rem;
+        background-color: transparent;
 
         &--file {
             border: none;
