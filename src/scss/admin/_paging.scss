@@ -8,6 +8,7 @@
     gap: 1rem;
     flex-wrap: wrap;
     justify-content: center;
+    align-items: center;
 
     @include m.tablet {
         justify-content: flex-end;
@@ -27,6 +28,23 @@
             &:hover {
                 background-color: v.$blue;
                 color: v.$white;
+            }
+        }
+        &--number {
+            font-weight: v.$bold;
+            display: none;
+
+            @include m.tablet {
+                display: inline;
+            }
+        }
+        &--current {
+            color: v.$gray;
+            font-weight: v.$bold;
+            display: none;
+
+            @include m.tablet {
+                display: inline;
             }
         }
     }
