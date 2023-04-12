@@ -97,6 +97,8 @@
             <ul class="speakers-list__ul" id="speakers-list__ul"></ul>
             <p class="speakers-list__p"></p>
         </div>
+
+        <input type="hidden" name="speaker_id" value="">
     </div>
 
     <div class="form__field">

@@ -4,6 +4,7 @@
 
     const speakersUl = document.querySelector('#speakers-list__ul');
     const speakersP = document.querySelector('.speakers-list__p');
+    const inputHiddenSpeaker = document.querySelector('[name=speaker_id]');
 
     let speakers = [];
     let filteredSpeakers = [];
@@ -100,6 +101,8 @@
         const speakerLi = e.target;
         speakerLi.classList.add('speakers-list__ul__speaker--selected');
         selectedSpeaker = speakerLi;
+
+        inputHiddenSpeaker.value = speakerLi.dataset.speakerId;
     };
 
     // // listeners
