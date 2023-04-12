@@ -93,6 +93,9 @@
             id="speakers"
             placeholder="Buscar Ponente"
         >
+        <div class="speakers-list">
+            <ul class="speakers-list__ul" id="speakers-list__ul"></ul>
+        </div>
     </div>
 
     <div class="form__field">
