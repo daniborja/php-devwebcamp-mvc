@@ -42,7 +42,7 @@ class EventsController
             if (empty($alerts)) {
                 $result = $event->save();
 
-                if ($result) header('Location: /admin/events');
+                if ($result) header('Location: /admin/eventos');
             }
         }
 
