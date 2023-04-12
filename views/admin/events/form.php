@@ -39,4 +39,23 @@
 
         </select>
     </div>
+
+
+    <div class="form__field">
+        <label for="category" class="form__label">Selecciona el día</label>
+
+        <div class="form__radio">
+            <?php foreach($days as $day) { ?>
+                <div>
+                    <label for="<?php echo strtolower($day->name); ?>"><?php echo $day->name; ?></label>
+                    <input
+                        type="radio"
+                        name="day"
+                        id="<?php echo strtolower($day->name); ?>"
+                        value="<?php echo $day->name; ?>"
+                    >
+                </div>
+            <?php } ?>
+        </div>
+    </div>
 </fieldset>

@@ -3,6 +3,7 @@
 namespace Controllers;
 
 use Model\Category;
+use Model\Day;
 use MVC\Router;
 
 class EventsController
@@ -18,14 +19,16 @@ class EventsController
     public static function create(Router $router)
     {
         $alerts = [];
-        $categories = Category::all();
-        
+
+        $categories = Category::all('ASC');
+        $days = Day::all('ASC');
 
 
         $router->render('admin/events/create', [
             'title' => 'Registrar Evento',
             'alerts' => $alerts,
-            'categories' => $categories
+            'categories' => $categories,
+            'days' => $days
         ]);
     }
 }

@@ -71,6 +71,11 @@
         }
     }
 
+    &__radio {
+        display: flex;
+        gap: 2rem;
+    }
+
     &__text {
         margin-top: 3rem;
     }
