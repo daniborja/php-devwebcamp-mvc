@@ -99,9 +99,9 @@ class ActiveRecord
             }
         }
 
-        $resultado = self::sqlQuery($query);
+        $result = self::sqlQuery($query);
 
-        return $resultado;
+        return $result;
     }
 
     // search for all records belonging to an ID

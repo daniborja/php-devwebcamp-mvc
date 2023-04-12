@@ -68,11 +68,16 @@
     <div class="form__field">
         <label for="" class="form__label">Seleccionar Hora</label>
 
-        <ul class="hours" id="hours">
+        <ul class="hours" id="hours" onselectstart="return false">
             <?php foreach($hours as $hour) { ?>
-                <li class="hours__hour" ><?php echo $hour->hour; ?></li>
+                <li
+                    class="hours__hour hours__hour--disabled"
+                    data-hour-id="<?php echo $hour->id ?>" ><?php echo $hour->hour; ?>
+                </li>
             <?php } ?>
         </ul>
+
+        <input type="hidden" name="hour_id" value="">
     </div>
 </fieldset>
 
