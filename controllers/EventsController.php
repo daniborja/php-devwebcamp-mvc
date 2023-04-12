@@ -4,6 +4,7 @@ namespace Controllers;
 
 use Model\Category;
 use Model\Day;
+use Model\Event;
 use Model\Hour;
 use MVC\Router;
 
@@ -25,6 +26,20 @@ class EventsController
         $days = Day::all('ASC');
         $hours = Hour::all('ASC');
 
+        $event = new Event();
+
+
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $event->synchronize($_POST);  // sync post data with instance
+            $alerts = $event->validate();
+
+            if (empty($alerts)) {
+                $result = $event->save();
+
+                if($result) header('Location: /admin/events');
+            }
+        }
+
 
         $router->render('admin/events/create', [
             'title' => 'Registrar Evento',
@@ -32,6 +47,7 @@ class EventsController
             'categories' => $categories,
             'days' => $days,
             'hours' => $hours,
+            'event' => $event,
         ]);
     }
 }

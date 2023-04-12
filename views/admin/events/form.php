@@ -9,7 +9,7 @@
             id="name"
             name="name"
             placeholder="Nombre Evento"
-            value="<?php echo $speaker->name ?? '' ?>"
+            value="<?php echo $event->name ?? ''; ?>"
         >
     </div>
 
@@ -21,8 +21,7 @@
             name="description"
             placeholder="Descripción Evento"
             rows="8"
-            value="<?php echo $speaker->name ?? '' ?>"
-        ></textarea>
+        ><?php echo $event->description ?? ''; ?></textarea>
     </div>
 
     <div class="form__field">
@@ -32,7 +31,10 @@
             <option value="">- Seleccionar -</option>
 
             <?php foreach($categories as $category) { ?>
-                <option value="<?php echo $category->id ?>">
+                <option 
+                    value="<?php echo $category->id ?>"
+                    <?php echo ($event->category_id === $category->id) ? 'selected' : ''; ?>
+                >
                     <?php echo $category->name; ?>
                 </option>
             <?php } ?>
@@ -53,7 +55,6 @@
                         type="radio"
                         name="day"
                         id="<?php echo strtolower($day->name); ?>"
-                        value="<?php echo $day->name; ?>"
                     >
                 </div>
             <?php } ?>
@@ -94,6 +95,7 @@
             id="available_places"
             name="available_places"
             placeholder="Ej. 20"
+            value="<?php echo $event->available_places ?>"
         >
     </div>
 
