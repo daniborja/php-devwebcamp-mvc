@@ -8,8 +8,8 @@
     const inputHiddenHour = document.querySelector('[name="hour_id"]');
 
     const search = {
-        category_id: '',
-        day: '',
+        category_id: +category.value || '',
+        day: +inputHiddenDay.value || '',
     };
 
     // // fn
@@ -20,6 +20,21 @@
 
         getAvailableHours(events);
     };
+
+    // edit event:
+    if (!Object.values(search).includes('')) {
+        (async () => {
+            await fetchEvents();
+
+            // 
+            const hourId = inputHiddenHour.value;
+            const selectedHour = document.querySelector(
+                `[data-hour-id="${hourId}"]`
+            );
+            selectedHour.classList.remove('hours__hour--disabled');
+            selectedHour.classList.add('hours__hour--selected')
+        })();
+    }
 
     // // handlers
     const searchTerm = async e => {

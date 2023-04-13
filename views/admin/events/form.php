@@ -56,13 +56,13 @@
                         name="day"
                         id="<?php echo strtolower($day->name); ?>"
                         value="<?php echo $day->id; ?>"
-
+                        <?php echo ($event->day_id === $day->id) ? 'checked' : ''; ?>
                     >
                 </div>
             <?php } ?>
         </div>
 
-        <input type="hidden" name="day_id" value="">
+        <input type="hidden" name="day_id" value="<?php echo $event->day_id; ?>">
     </div>
 
     <div class="form__field">
@@ -77,7 +77,7 @@
             <?php } ?>
         </ul>
 
-        <input type="hidden" name="hour_id" value="">
+        <input type="hidden" name="hour_id" value="<?php echo $event->hour_id; ?>">
     </div>
 </fieldset>
 

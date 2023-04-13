@@ -80,4 +80,46 @@ class EventsController
             'event' => $event,
         ]);
     }
+
+
+    public static function edit(Router $router)
+    {
+        if (!isAdmin()) header('Location: /login');
+
+        $alerts = [];
+        $id = $_GET['id'];
+        $id = filter_var($id, FILTER_VALIDATE_INT);
+        if (!$id) header('Locations: /admin/eventos');
+
+        $categories = Category::all('ASC');
+        $days = Day::all('ASC');
+        $hours = Hour::all('ASC');
+
+        $event = Event::find($id);
+        if (!$event) header('Locations: /admin/eventos');
+
+
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            if (!isAdmin()) header('Location: /login');
+
+            $event->synchronize($_POST);  // sync post data with instance
+            $alerts = $event->validate();
+
+            if (empty($alerts)) {
+                $result = $event->save();
+
+                if ($result) header('Location: /admin/eventos');
+            }
+        }
+
+
+        $router->render('admin/events/edit', [
+            'title' => 'Editar Evento',
+            'alerts' => $alerts,
+            'categories' => $categories,
+            'days' => $days,
+            'hours' => $hours,
+            'event' => $event,
+        ]);
+    }
 }

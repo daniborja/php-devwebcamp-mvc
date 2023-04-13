@@ -55,6 +55,8 @@ $router->post('/admin/ponentes/eliminar', [SpeakersController::class, 'delete'])
 $router->get('/admin/eventos', [EventsController::class, 'index']);
 $router->get('/admin/eventos/crear', [EventsController::class, 'create']);
 $router->post('/admin/eventos/crear', [EventsController::class, 'create']);
+$router->get('/admin/eventos/editar', [EventsController::class, 'edit']);
+$router->post('/admin/eventos/editar', [EventsController::class, 'edit']);
 
 $router->get('/api/eventos-horario', [APIEvents::class, 'index']);
 $router->get('/api/speakers', [APISpeakers::class, 'index']);

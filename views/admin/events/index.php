@@ -35,13 +35,30 @@
                         <td class="table__td">
                             <?php echo $event->speaker->name . " " . $event->speaker->last_name; ?>
                         </td>
+
+                        <!-- actions -->
+                        <td class="table__td--actions">
+                            <a href="/admin/eventos/editar?id=<?php echo $event->id ?>" class="table__action table__action--edit">
+                                <i class="fa-solid fa-pencil"></i>
+                                Editar
+                            </a>
+                            <form method="POST" action="/admin/eventos/eliminar" class="table__form">
+                                <input type="hidden" name="id" value="<?php echo $event->id ?>">
+                                <button type="submit" class="table__action table__action--delete">
+                                    <i class="fa-solid fa-circle-xmark"></i>
+                                    Eliminar
+                                </button>
+                            </form>
+                        </td>
                     </tr>
                 <?php } ?>
             </tbody>
         </table>
+
     <?php } else { ?>
         <p class="text-center">No Hay Eventos Aún</p>
     <?php } ?>
+
 </div>
 
 
