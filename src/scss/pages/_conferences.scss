@@ -30,6 +30,15 @@
         #{$modifier}__heading {
             color: v.$secondary;
         }
+
+        .event__information {
+            background-color: v.$secondary;
+            transition: 300ms background-color ease;
+
+            &:hover {
+                background-color: darken(v.$secondary, 10%);
+            }
+        }
     }
 
     // swiper
