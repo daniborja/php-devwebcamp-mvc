@@ -60,6 +60,7 @@ $router->post('/admin/eventos/editar', [EventsController::class, 'edit']);
 
 $router->get('/api/eventos-horario', [APIEvents::class, 'index']);
 $router->get('/api/speakers', [APISpeakers::class, 'index']);
+$router->get('/api/speaker', [APISpeakers::class, 'speaker']);
 
 
 

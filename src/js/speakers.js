@@ -19,6 +19,26 @@
     };
     fetchSpeakers();
 
+    const fetchSpeaker = async id => {
+        const url = `/api/speaker?id=${id}`;
+        const resp = await fetch(url);
+
+        return await resp.json();
+    };
+
+    // for edit event
+    if (inputHiddenSpeaker.value) {
+        (async () => {
+            const { id, name, last_name } = await fetchSpeaker(
+                inputHiddenSpeaker.value
+            );
+            let html = `
+                <li class="speakers-list__ul__speaker speakers-list__ul__speaker--selected" data-speaker-id=${id}>${name} ${last_name}</li>
+            `;
+            speakersUl.innerHTML = html;
+        })();
+    }
+
     const formatSpeakers = (speakersArr = []) => {
         speakers = speakersArr.map(speaker => ({
             name: `${speaker.name.trim()} ${speaker.last_name.trim()}`,

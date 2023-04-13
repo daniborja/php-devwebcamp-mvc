@@ -93,12 +93,12 @@
             id="speakers"
             placeholder="Buscar Ponente"
         >
-        <div class="speakers-list">
+        <div class="speakers-list" onselectstart="return false">
             <ul class="speakers-list__ul" id="speakers-list__ul"></ul>
             <p class="speakers-list__p"></p>
         </div>
 
-        <input type="hidden" name="speaker_id" value="">
+        <input type="hidden" name="speaker_id" value="<?php echo $event->speaker_id; ?>">
     </div>
 
     <div class="form__field">
