@@ -122,4 +122,22 @@ class EventsController
             'event' => $event,
         ]);
     }
+
+
+    public static function delete()
+    {
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            if (!isAdmin()) header('Location: /login');
+
+            $id = $_POST['id'];
+            $id = filter_var($id, FILTER_VALIDATE_INT);
+            if (!$id) header('Locations: /admin/eventos');
+
+            $event = Event::find($id);
+            if (!isset($event)) header('Location: /admin/eventos');
+
+            $result = $event->delete();
+            if ($result) header('Location: /admin/eventos');
+        }
+    }
 }

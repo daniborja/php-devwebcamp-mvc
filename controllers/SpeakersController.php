@@ -167,8 +167,6 @@ class SpeakersController
 
     public static function delete()
     {
-        if (!isAdmin()) header('Location: /login');
-
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             if (!isAdmin()) header('Location: /login');
 

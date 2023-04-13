@@ -57,6 +57,7 @@ $router->get('/admin/eventos/crear', [EventsController::class, 'create']);
 $router->post('/admin/eventos/crear', [EventsController::class, 'create']);
 $router->get('/admin/eventos/editar', [EventsController::class, 'edit']);
 $router->post('/admin/eventos/editar', [EventsController::class, 'edit']);
+$router->post('/admin/eventos/eliminar', [EventsController::class, 'delete']);
 
 $router->get('/api/eventos-horario', [APIEvents::class, 'index']);
 $router->get('/api/speakers', [APISpeakers::class, 'index']);
