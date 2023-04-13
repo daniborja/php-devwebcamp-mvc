@@ -19,14 +19,14 @@ function s($html): string
 // check authentication status
 function isAuth(): bool
 {
-    session_start();
+    if (!isset($_SESSION)) session_start();
 
     return !!$_SESSION['is_logged_in'] && isset($_SESSION['email']) && !empty($_SESSION);
 }
 
 function isAdmin(): bool
 {
-    session_start();
+    if (!isset($_SESSION)) session_start();
 
     return !!$_SESSION['is_logged_in'] && !!$_SESSION['is_admin'] && !empty($_SESSION);
 }

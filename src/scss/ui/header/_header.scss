@@ -11,7 +11,7 @@
                 url(../img/header.webp) 1x,
                 url(../img/header.jpg) 1x
             );
-    // position imahes:
+    // position images:
     background-repeat: no-repeat;
     background-size: 40rem, 40rem, cover, cover;
     background-position: top left, bottom right, center center, center, center;
@@ -29,6 +29,13 @@
         @include m.tablet {
             justify-content: flex-end;
         }
+    }
+
+    &__form {
+        display: flex;
+    }
+    &__submit {
+        @extend .header__link;
     }
 
     &__link {
