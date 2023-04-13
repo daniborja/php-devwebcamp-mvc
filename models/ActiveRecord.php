@@ -78,6 +78,25 @@ class ActiveRecord
         return $result;
     }
 
+    // // TODO: fix this
+    // public static function pagingEvents($per_page, $offset)
+    // {
+    //     $consulta = "SELECT e.id, e.name, e.description, e.available_places, 
+    //         categories.name as category_id, days.name as day_id, 
+    //         hours.hour as hour_id, CONCAT( speakers.name, ' ', speakers.last_name) as speaker_id 
+    //         FROM events e 
+    //         left join categories on e.category_id = categories.id
+    //         left join days on e.day_id = days.id
+    //         left join hours on e.hour_id = hours.id
+    //         left join speakers on e.speaker_id = speakers.id
+    //         ORDER BY e.id DESC LIMIT $per_page OFFSET $offset";
+
+    //     $resultados = self::SQL($consulta);
+    //     return $resultados;
+    // }
+
+
+
     // search by column (WHERE)
     public static function where($column, $value)
     {

@@ -76,7 +76,7 @@ class Paging
         return $html;
     }
 
-    public function pagination()
+    public function paginationTemplate()
     {
         $html = '';
 
