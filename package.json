@@ -27,6 +27,12 @@
         "gulp-webp": "^4.0.1",
         "postcss": "^8.4.21",
         "sass": "^1.41.1",
-        "terser": "^5.14.2"
+        "terser": "^5.14.2",
+        "webpack": "^5.79.0",
+        "webpack-stream": "^7.0.0"
+    },
+    "dependencies": {
+        "remove": "^0.1.5",
+        "swiper": "^9.2.0"
     }
 }
