@@ -25,10 +25,19 @@
         </a>
 
         <nav class="navigation">
-            <a href="/devwebcamp" class="navigation__link">Evento</a>
-            <a href="/paquetes" class="navigation__link">Paquetes</a>
-            <a href="/workshops-conferencias" class="navigation__link">Workshops / Conferencias</a>
-            <a href="/registro" class="navigation__link">Comprar Pase</a>
+            <a href="/devwebcamp" class="navigation__link 
+                <?php echo isActiveLink('/devwebcamp') ? 'navigation__link--active' : ''; ?>
+                ">
+                Evento
+            </a>
+            <a href="/paquetes" class="navigation__link 
+                <?php echo isActiveLink('/paquetes') ? 'navigation__link--active' : ''; ?>
+                ">Paquetes</a>
+            <a href="/workshops-conferencias" class="navigation__link 
+                <?php echo isActiveLink('/workshops-conferencias') ? 'navigation__link--active' : ''; ?>
+                ">Workshops / Conferencias</a>
+            <a href="/registro" class="navigation__link <?php echo isActiveLink('/registro') ? 'navigation__link--active' : ''; ?>
+                ">Comprar Pase</a>
         </nav>
     </div>
 </div>
