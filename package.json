@@ -9,6 +9,7 @@
     "author": "",
     "license": "MIT",
     "devDependencies": {
+        "css-loader": "^6.7.3",
         "cssnano": "^4.1.10",
         "gulp": "^4.0.2",
         "gulp-autoprefixer": "^7.0.1",
@@ -27,6 +28,7 @@
         "gulp-webp": "^4.0.1",
         "postcss": "^8.4.21",
         "sass": "^1.41.1",
+        "style-loader": "^3.3.2",
         "terser": "^5.14.2",
         "webpack": "^5.79.0",
         "webpack-stream": "^7.0.0"

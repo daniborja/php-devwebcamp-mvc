@@ -31,11 +31,25 @@
             color: v.$secondary;
         }
     }
+
+    // swiper
+    .swiper-button-next,
+    .swiper-button-prev {
+        color: rgba(v.$white, 0.5);
+    }
 }
 
 .event {
     &__hour {
         font-weight: v.$bold;
+    }
+    &__name {
+        font-size: 2rem;
+        margin: 0;
+        display: -webkit-box;
+        -webkit-line-clamp: 1;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
     }
     &__information {
         padding: 2rem;

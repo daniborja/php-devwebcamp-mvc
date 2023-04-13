@@ -39,19 +39,30 @@ function css() {
     );
 }
 function javascript() {
-    return src(paths.js)
-        .pipe(
-            webpack({
-                mode: 'production',
-                entry: './src/js/app.js',
-            })
-        )
-        .pipe(sourcemaps.init())
-        .pipe(concat('bundle.js'))
-        .pipe(terser())
-        .pipe(sourcemaps.write('.'))
-        .pipe(rename({ suffix: '.min' }))
-        .pipe(dest('./public/build/js'));
+    return (
+        src(paths.js)
+            .pipe(
+                webpack({
+                    module: {
+                        rules: [
+                            {
+                                test: /\.css$/i,
+                                use: ['style-loader', 'css-loader'],
+                            },
+                        ],
+                    },
+                    mode: 'production',
+                    watch: true,
+                    entry: './src/js/app.js',
+                })
+            )
+            .pipe(sourcemaps.init())
+            // .pipe(concat('bundle.js'))   // repleaced with webpack
+            .pipe(terser())
+            .pipe(sourcemaps.write('.'))
+            .pipe(rename({ suffix: '.min' }))
+            .pipe(dest('./public/build/js'))
+    );
 }
 
 function imagenes() {

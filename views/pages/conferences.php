@@ -32,6 +32,9 @@
                     </div>
                 <?php } ?>
             </div>
+
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
         </div>
 
         <p class="events__date">Sábado 6 de Octubre</p>

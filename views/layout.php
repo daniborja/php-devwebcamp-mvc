@@ -23,7 +23,7 @@
 
     include_once __DIR__ . '/templates/footer.php';
     ?>
-    <script src="/build/js/bundle.min.js" defer></script>
+    <script src="/build/js/main.min.js" defer></script>
 </body>
 
 </html>
