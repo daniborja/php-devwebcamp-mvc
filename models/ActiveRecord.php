@@ -105,6 +105,14 @@ class ActiveRecord
         return array_shift($result);
     }
 
+    // retornar los registros por un orden
+    public static function order($column, $order)
+    {
+        $query = "SELECT * FROM " . static::$table . " ORDER BY $column $order ";
+        $result = self::sqlQuery($query);
+        return $result;
+    }
+
     // WHERE with multiple options
     public static function whereArray($array = [])
     {
