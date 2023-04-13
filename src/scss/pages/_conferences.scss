@@ -1,0 +1,34 @@
+@use 'base/mixins' as m;
+@use 'base/variables' as v;
+
+.schedule {
+    padding: 5rem 0;
+    @include m.container;
+}
+
+.events {
+    // modificador de bloque
+    $modifier: &;
+
+    &__heading {
+        color: v.$blue;
+        margin: 5rem 0;
+        text-align: left;
+
+        // response text without mq
+        font-size: clamp(2rem, -0.8rem + 8vw, 6rem);
+    }
+
+    &__date {
+        color: v.$gray;
+        margin: 3rem 0 1rem 0;
+    }
+
+    // modificador de bloque
+    &--workshops {
+        // interpolacion en Sass, Concatenacion en JS/PHP
+        #{$modifier}__heading {
+            color: v.$secondary;
+        }
+    }
+}
