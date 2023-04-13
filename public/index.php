@@ -8,6 +8,7 @@ use Controllers\AuthController;
 use Controllers\DashboardController;
 use Controllers\EventsController;
 use Controllers\GiftsController;
+use Controllers\PublicPagesController;
 use Controllers\RegisteredController;
 use Controllers\SpeakersController;
 use MVC\Router;
@@ -15,7 +16,7 @@ use MVC\Router;
 $router = new Router();
 
 
-// // Auth
+// // // Auth
 // Login
 $router->get('/login', [AuthController::class, 'login']);
 $router->post('/login', [AuthController::class, 'login']);
@@ -64,10 +65,23 @@ $router->get('/api/speakers', [APISpeakers::class, 'index']);
 $router->get('/api/speaker', [APISpeakers::class, 'speaker']);
 
 
-
 $router->get('/admin/registrados', [RegisteredController::class, 'index']);
 
 $router->get('/admin/regalos', [GiftsController::class, 'index']);
+
+
+
+
+// // // public
+$router->get('/', [PublicPagesController::class, 'index']);
+$router->get('/devwebcamp', [PublicPagesController::class, 'event']);
+$router->get('/paquetes', [PublicPagesController::class, 'packages']);
+$router->get('/workshops-conferencias', [PublicPagesController::class, 'conferences']);
+
+
+
+
+
 
 
 // Checks and validates existing routes and assigns controller functions to them.
